@@ -1,0 +1,96 @@
+using System;
+
+public class Program
+{
+   static void Main(string[] args)
+   {
+      string nombreProducto;
+      int codigoProducto;
+      float precioProucto;
+      bool disponi;
+      char categoria;
+      double descue;
+
+      Console.WriteLine(" BIENVENIDO AL SISTEMA");
+
+      Console.WriteLine(" Ingresar nombre del producto que desea clasificar: ");
+      nombreProducto = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine(" Ingresar el codigo del producto: ");
+      codigoProducto = int.Parse(Console.ReadLine());
+      Console.WriteLine();
+
+
+      Console.WriteLine(" Ingresar el  precio que tendrá el producto: ");
+      precioProucto = float.Parse(Console.ReadLine());
+      Console.WriteLine();
+
+
+      Console.WriteLine(" ¿EL producto se encuentra disponible?");
+      disponi = bool.Parse(Console.ReadLine());
+      Console.WriteLine();
+        if ( disponi == false)
+        {
+         Console.WriteLine(" El producto debe de estar en stock para continuar.");
+         Environment.Exit(0);//Parar el programa
+        }
+
+
+        if (disponi == true)
+        {
+         Console.WriteLine(" ¡El producto se encuentra disponible actuamente!");
+        }
+        else
+        {
+         Console.WriteLine(" El producto no se encuentra disponible actualmente");
+        }
+
+      Console.WriteLine(" Ingresar la clasificación del producto (A , B, C): ");
+      categoria = char.Parse(Console.ReadLine());
+      Console.WriteLine();
+
+
+      if (categoria == 'A' || categoria == 'a' && precioProucto > 100)
+      {
+         descue = precioProucto - (precioProucto * 0.10);
+
+         Console.WriteLine(" El nombre del producto es: {0}", nombreProducto);
+         Console.WriteLine(" El código del producto es: {0}", codigoProducto);
+         Console.WriteLine(" El precio del producto es: {0}", precioProucto);
+         Console.WriteLine(" La disponibilidad es: {0}", disponi);
+         Console.WriteLine(" La categoria del producto es: {0} y el precio del producto aplicando el descuento es: {1}", nombreProducto, descue);
+            
+        }
+      else
+      if (categoria == 'A'|| categoria == 'a' && precioProucto < 100)
+      {
+         Console.WriteLine(" El precio del producto para esta categoría debe ser mayor a 100");
+      }
+      else if (categoria == 'B' || categoria == 'b' && precioProucto <= 50.0)
+        {
+            descue = precioProucto - (precioProucto * 0.5);
+            Console.WriteLine(" El nombre del producto es: {0}", nombreProducto);
+            Console.WriteLine(" El código del producto es: {0}", codigoProducto);
+            Console.WriteLine(" El precio del producto es: {0}", precioProucto);
+            Console.WriteLine(" La disponibilidad es: {0}", disponi);
+            Console.WriteLine(" La categoria del producto es: {0} y el precio del producto más el descuento es: {1}", nombreProducto, descue);
+        }
+        else
+          if (categoria == 'B' || categoria == 'b' && precioProucto > 50)
+         {
+         Console.WriteLine(" El precio del producto para esta categoría debe ser menor a 50.");
+          }
+          else if (categoria == 'C' || categoria == 'c')
+        {
+            Console.WriteLine(" El nombre del producto es: {0}", nombreProducto);
+            Console.WriteLine(" El código del producto es: {0}", codigoProducto);
+            Console.WriteLine(" El precio del producto es: {0}", precioProucto);
+            Console.WriteLine(" La disponibilidad es: {0}", disponi);
+            Console.WriteLine(" El producto no tiene descuento. ");
+        }
+
+
+    }
+   }
+
